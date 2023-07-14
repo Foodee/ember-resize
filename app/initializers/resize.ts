@@ -5,12 +5,12 @@ import ResizeService from 'ember-resize/services/resize';
 import config from '../config/environment';
 
 export function initialize(application: Pick<Application, 'register'|'inject'|'unregister'|'resolveRegistration'>) {
-  const resizeServiceDefaults = get(config, 'resizeServiceDefaults') ?? {
+  const resizeServiceDefaults = get(config, 'resizeServiceDefaults') || {
     debounceTimeout: 200,
     heightSensitive: true,
     widthSensitive: true,
   };
-  const injectionFactories = get(resizeServiceDefaults, 'injectionFactories') ?? ['view', 'component'];
+  const injectionFactories = get(resizeServiceDefaults, 'injectionFactories') || ['view', 'component'];
 
   application.unregister('config:resize-service');
 

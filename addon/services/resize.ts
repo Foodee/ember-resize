@@ -55,7 +55,7 @@ class ResizeService extends Service.extend(Evented, {
   }
 
   public _setDefaults() {
-    const defaults = get(this, 'resizeServiceDefaults') ?? {} as any;
+    const defaults = get(this, 'resizeServiceDefaults') || {} as any;
 
     Object.keys(defaults).map((key: keyof ResizeDefaults) => {
       const classifiedKey = classify(key);
